@@ -8,10 +8,10 @@ public class PromocaoService {
 	
 	public void promover(Funcionario funcionario, boolean metaBatida) {
 		
-		if(Cargo.GERENTE.equals(funcionario.getCargo())) throw new ValidacaoException("Gerente não pode ser promovido");
+		if(Cargo.GERENTE.equals(funcionario.getDadosPessoais().getCargo())) throw new ValidacaoException("Gerente não pode ser promovido");
 		if(!metaBatida) throw new ValidacaoException("Funcionario não bateu a meta");
 		
-		Cargo novoCargo = funcionario.getCargo().getProximoCargo();
+		Cargo novoCargo = funcionario.getDadosPessoais().getCargo().getProximoCargo();
 		funcionario.promover(novoCargo);
 	}
 
